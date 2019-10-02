@@ -9,11 +9,15 @@
 <body>
     
     <div id="app">
-            <!-- <h1 v-show="message.length > 2">Hola <span v-text="message"></span></h1>
+            <!-- <h1 v-show="message.length > 2">Hola <span v-text="message"></span></h1> -->
             <h1 v-if="message.length > 2">Hola <span v-text="message"></span></h1>
-            <h1 v-else>Escribe tu nombre</h1> -->
+            <h1 v-else>Escribe tu nombre</h1>
             <!--directiva de Vue:  v-  -->
-            <!-- <input type="text" v-model="message"> -->
+            <input type="text" v-model="message">
+            
+            <button v-on:click="revertir">Reverse Message</button>
+
+
             <h1>Lista de tareas</h1>
             <ul>
                 <li v-for="tarea in tareas">
@@ -23,7 +27,6 @@
                 </li>
             </ul>
     </div>
-    
     <!-- development version, includes helpful console warnings -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
@@ -38,7 +41,11 @@
                 {title: "Aprender Vue.js", completed: true},
                 {title: "Aprender PHP", completed: false}
             ]
-
+        },
+        methods: {
+            revertir: function(){
+                this.message = this.message.split('').reverse().join('');
+            }
         }
     });
 </script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intro Vue.js</title>
+</head>
+<body>
+    
+    <div id="app">
+            <!-- <h1 v-show="message.length > 2">Hola <span v-text="message"></span></h1>
+            <h1 v-if="message.length > 2">Hola <span v-text="message"></span></h1>
+            <h1 v-else>Escribe tu nombre</h1> -->
+            <!--directiva de Vue:  v-  -->
+            <!-- <input type="text" v-model="message"> -->
+            <h1>Lista de tareas</h1>
+            <ul>
+                <li v-for="tarea in tareas">
+                    <span v-text="tarea.title"></span>
+                    <small v-if="tarea.completed">Tarea completa</small>
+                    <small v-else>Tarea incompleta</small>
+                </li>
+            </ul>
+    </div>
+    
+    <!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //nueva instancia de Vue.js
+    new Vue({
+        el: "#app", //id donde Vue va a trabajar
+        data:{
+            //objeto: define la información que se va a manipular
+            message : "mundo",
+            tareas:[
+                {title: "Aprender Laravel", completed: true},
+                {title: "Aprender Vue.js", completed: true},
+                {title: "Aprender PHP", completed: false}
+            ]
+
+        }
+    });
+</script>
+</body>
+</html>

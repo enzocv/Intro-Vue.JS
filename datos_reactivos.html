@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intro Vue.js</title>
+</head>
+<body>
+
+    <div id="fecha">
+        <p>Prueba de fecha</p>
+        <p>{{ fecha.getFullYear() }}</p>
+    </div>
+
+    <div id="app">
+        <h1>{{contador}}</h1>
+
+        <button @click="reducirContador">-</button>
+        <button v-on:click="aumentarContador">+</button>
+
+        <p>Condicionales Vue.js: contador par</p>
+        <p v-if="esParOImpar">el contador es par</p>
+        <p v-else="">el contador es impar</p>
+    </div>
+    
+    <!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+// intro basic
+    new Vue({
+        el: "#fecha",
+        data:{
+            fecha: new Date()
+        }
+    });
+
+
+    new Vue({
+        el:"#app",
+        data:{
+            contador: 0
+        },
+        methods:{
+            reducirContador: function(){
+                this.contador--;
+                console.log("reducir contador");
+            },
+            aumentarContador: function(){
+                this.contador++;
+                console.log("aumentar contador");
+            }
+        },
+        computed:{
+            esParOImpar(){
+                return this.contador % 2 == 0;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
